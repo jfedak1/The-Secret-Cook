@@ -19,10 +19,10 @@ function App() {
     checkAuthentication();
   }, []);
 
-  // if (isAuthenticated === null) {
+  if (isAuthenticated === null) {
     // Optionally show a loading screen while checking authentication
-  //   return <div>Loading...</div>;
-  // }
+    return <div></div>;
+  }
 
   return (
     <MantineProvider>
