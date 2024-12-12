@@ -11,9 +11,8 @@ function App() {
 
   useEffect(() => {
     const checkAuthentication = async () => {
-      const { data } = await supabase.auth.getUser();
-      setIsAuthenticated(true);
-      // setIsAuthenticated(!!data.user); // true if user exists, false otherwise
+      const { data: { user } } = await supabase.auth.getUser();
+      setIsAuthenticated(!!user); // true if user exists, false otherwise
     };
 
     checkAuthentication();
