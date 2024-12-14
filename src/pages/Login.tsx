@@ -83,10 +83,23 @@ export default function Login() {
     },
   });
 
+  // Interface for Create Account Form Values
+  interface CreateAccountFormValues {
+    firstName: string;
+    lastName: string;
+    username: string;
+    email: string;
+    password: string;
+  }
   // Create Account Form Submit Handler
-  const createAccountFormSubmitHandler = (values: any) => {
-    console.log(values);
-  };
+  async function createAccountFormSubmitHandler(values: CreateAccountFormValues) {
+    try {
+      const data = await signUpNewUser(values.email, values.password);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   
 
   return (
