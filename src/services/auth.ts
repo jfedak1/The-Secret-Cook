@@ -1,14 +1,15 @@
 import supabase from './supabaseClient';
 
-export async function signUpNewUser() {
-    const { data, error } = await supabase.auth.signUp({
-      email: 'valid.email@supabase.io',
-      password: 'example-password',
-      options: {
-        emailRedirectTo: 'https://www.thesecretcook.com/groups',
-      },
-    })
-    if (error) throw error
-    return data;
-  }
+export async function signUpNewUser(email: string, password: string) {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      emailRedirectTo: 'https://www.thesecretcook.com/groups',
+    },
+  });
+
+  if (error) throw error;
+  return data;
+}
     
