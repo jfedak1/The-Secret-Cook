@@ -1,5 +1,6 @@
-import { useForm, isEmail } from '@mantine/form';
+import { useForm } from '@mantine/form';
 import { useState } from 'react';
+import {signUpNewUser} from '../services/auth';
 import {
   Anchor,
   Button,
@@ -82,6 +83,12 @@ export default function Login() {
     },
   });
 
+  // Create Account Form Submit Handler
+  const createAccountFormSubmitHandler = (values: any) => {
+    console.log(values);
+  };
+  
+
   return (
     <Container size={420} my={40} mt={50}>
       <div className="flex items-center justify-center w-24 h-24 bg-primary rounded-full m-auto mb-3">
@@ -122,7 +129,7 @@ export default function Login() {
 
       {/* Create Account Form */}
       {!showSignIn && (
-        <form onSubmit={createAccountForm.onSubmit((values) => console.log(values))}>
+        <form onSubmit={createAccountForm.onSubmit(createAccountFormSubmitHandler)}>
           <Paper p={20} pb={30} pt={10} mt={0} radius="md">
             <div className="flex items-center justify-between gap-2">
               <TextInput size='md' mt="md" label="First Name" placeholder="Billy" required withAsterisk={false} {...createAccountForm.getInputProps('firstName')}/>
