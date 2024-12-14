@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
@@ -24,7 +25,25 @@ function App() {
   }
 
   return (
-    <MantineProvider>
+    <MantineProvider 
+    theme={{
+      primaryColor: 'customYellow', // Name of your custom color palette
+      colors: {
+        customYellow: [
+          '#ffe7b3', // Lightest shade (index 0)
+          '#ffdf99', // 75%
+          '#ffd780', // 70%
+          '#ffcf66', // 65%
+          '#ffc64d', // 60%
+          '#ffbe33', // Primary shade (index 5)
+          '#ffbd2e', // 55%
+          '#ffb61a', // 50%
+          '#ffae00', // 45%
+          '#e69d00', // Darkest shade (index 9)
+        ],
+      },
+    }}
+    >
       <BrowserRouter>
         <Routes>
           {/* Login Route */}
